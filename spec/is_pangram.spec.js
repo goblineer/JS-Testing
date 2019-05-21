@@ -7,57 +7,50 @@ describe('isPangram()', () => {
 
   test('works with a pangram with only lower case', () => {
     // Arrange
-    const text = 'the quick brown fox jumps over the lazy dog';
-
-    // Act
-
+    const myPangram = new Pangram('five hexing wizard bots jump quickly');
     // Assert
+    expect(myPangram.isPangram()).toBe(true);
   });
 
   test('works with "abcdefghijklmnopqrstuvwxyz"', () => {
     // Arrange
-
+    const myPangram = new Pangram('abcdefghijklmnopqrstuvwxyz');
     // Act
-
-    // Assert
-
+    expect(myPangram.isPangram()).toBe(true);
   });
 
   test("missing character 'x'", () => {
     // Arrange
-
-    // Act
-
+    const myPangram = new Pangram('the jazzy goblins annoy a quavering dwarf');
     // Assert
-
+    expect(myPangram.isPangram()).toBe(false);
   });
 
   test('empty sentence', () => {
     // Arrange
-
-    // Act
-
-    // Assert
-
+    const myPangram = new Pangram('')
+        // Assert
+    expect(myPangram.isPangram()).toBe(false)
   });
 
   test('pangram with underscores instead of spaces works', () => {
     // Arrange
-
-    // Act
-
+    const myPangram = new Pangram('pack_my_box_with_five_dozen_liquor_jugs')
     // Assert
-
+    expect(myPangram.isPangram()).toBe(true)
   });
 
   test('pangram with numbers', () => {
     // Arrange
-
-    // Act
-
+    const myPangram = new Pangram('five or six big jet planes zoomed quickly by the 4th tower')
     // Assert
-
+    expect(myPangram.isPangram()).toBe(true)
   });
 
-  // Write your own test case
+  test('sentence in all capital letters', () => {
+    // Arrange
+    const myPangram = new Pangram('SPHINX OF BLACK QUARTZ, JUDGE MY VOW')
+    //Assert
+    expect(myPangram.isPangram()).toBe(true)
+});
 });
